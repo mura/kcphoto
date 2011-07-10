@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" dir="ltr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>kosenconf-photo　テンプレートページ</title>
+  <link rel="stylesheet" type="text/css" href="./kcp.css"/>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script type="text/javascript" src="jquery.atteeeeention.min.js"></script>
+  <script type="text/javascript" src="jquery.masonry.min.js"></script>
+<script type="text/javascript">
+function readFlickr(tagName,pageNum){
+  $.ajax({
+    url: "api.php",
+    dataType: "json",
+    data: {
+      tag: tagName,
+      page:pageNum
+    },
+    success: function(data){
+      var tiles = $('#kcp-tiles');
+    
+      for (var i in data) {
+        tiles.append($('<span></span>')
+             .append($('<a></a>').attr('href', data[i].url)
+             .append($('<img />').attr('src', data[i].thumb))));
+      }
+
+      $('#kcp-tiles').atteeeeention({
+          margin: 0
+      });
+    }
+  });
+}
+
+$(document).ready(function() {
+  var tag = 'kosenconf';
+  var hash = window.location.hash;
+  if ( hash.indexOf('#kosenconf', 0) == 0 ) {
+    tag = hash.slice(1, hash.length);
+  }
+  $('#kcp-tag').html(tag);
+  readFlickr(tag, 1);
+  //readFlickr("kosenconf-030joshi-tokyo", 1);
+});
+</script>
+</head>
+<body>
+  <h2 id="kcp-title">kosenconf-photo</h2>
+  <div id="kcp-tag"></div>
+  <div id="kcp-tiles">
+    <!-- following stubs -->
+<!--    <span><img src="1.jpg" /></span>
+    <span><img src="2.jpg" /></span>
+    <span><img src="3.jpg" /></span>
+    <span><img src="4.jpg" /></span> -->
+  </div>
+</body>
+</html>
+
