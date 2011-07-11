@@ -4,7 +4,7 @@
 #kcp-tag{padding:2pt;background-color:#eee;}
 #kkkkkcp-tiles img{margin:5pt;border:1 solid #000;background-color:#ffe;}
 #kkkkkcp-tiles img.scale1{width:64pt;height:48pt;}
-.clearfix:after{
+.clearfix:after {
   content: ".";
   display: block;
   height: 0;

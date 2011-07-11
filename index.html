@@ -21,14 +21,22 @@ function readFlickr(tagName,pageNum){
       var tiles = $('#kcp-tiles');
     
       for (var i in data) {
-        tiles.append($('<span></span>')
+        tiles.append($('<div class="item"></div>')
              .append($('<a></a>').attr('href', data[i].url)
-             .append($('<img />').attr('src', data[i].thumb))));
+             .append($('<img />').attr('src', data[i].thumb)
+			                     .attr('height', data[i].height)
+								 .attr('width', data[i].width))));
       }
 
+/*
       $('#kcp-tiles').atteeeeention({
           margin: 0
       });
+*/
+      $('#kcp-tiles').masonry({
+	    itemSelector: '.item',
+		columnWidth: 75
+	  });
     }
   });
 }

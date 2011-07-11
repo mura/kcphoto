@@ -1,0 +1,16 @@
+kosenconf photo viewer
+======================
+
+1. 必要なパッケージ
+PHP 5.2+(5.3以降推奨)
+ - curl
+ - json
+ - dom
+
+Zend Framework 1.11+
+
+2. 動かし方
+ - リポジトリのファイルをチェックアウト
+ - Zend Framework をダウンロード
+ - Zend Framework を解凍し、library/Zend をリポジトリを同じディレクトリにコピー
+ - PHPを有効にしてアクセス！
